@@ -1,6 +1,8 @@
 "use client";
 
 import React, { useMemo, useState } from "react";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 import raw from "@/data/universidades.json";
 
 type UniRaw = {
@@ -9,7 +11,7 @@ type UniRaw = {
   cidade?: string | null;
   regiao?: string | null;
   pais?: string | null;
-  tipo?: string | null; // "publica" | "privada" | null
+  tipo?: string | null;
   rank_qs?: number | string | null;
   site?: string | null;
   cursos?: string[] | string | null;
@@ -63,26 +65,24 @@ function fmtQS(rank: number | null) {
 }
 
 export default function Page() {
+  const router = useRouter();
   const data = raw as UniRaw[];
 
   const list: Uni[] = useMemo(() => {
-    return (data ?? []).map((u, idx) => {
-      return {
-        id: safeStr(u.id) || String(idx),
-        nome: safeStr(u.nome) || "Universidade",
-        cidade: safeStr(u.cidade),
-        regiao: safeStr(u.regiao),
-        pais: safeStr(u.pais) || "Itália",
-        tipo: normalizeTipo(u.tipo),
-        rank_qs: normalizeRank(u.rank_qs),
-        site: safeStr(u.site) || null,
-        cursos: normalizeCursos(u.cursos),
-        bolsas: Boolean(u.bolsas),
-      };
-    });
+    return (data ?? []).map((u, idx) => ({
+      id: safeStr(u.id) || String(idx),
+      nome: safeStr(u.nome) || "Universidade",
+      cidade: safeStr(u.cidade),
+      regiao: safeStr(u.regiao),
+      pais: safeStr(u.pais) || "Itália",
+      tipo: normalizeTipo(u.tipo),
+      rank_qs: normalizeRank(u.rank_qs),
+      site: safeStr(u.site) || null,
+      cursos: normalizeCursos(u.cursos),
+      bolsas: Boolean(u.bolsas),
+    }));
   }, [data]);
 
-  // UI state
   const [q, setQ] = useState("");
   const [tipo, setTipo] = useState<"todas" | Uni["tipo"]>("todas");
   const [cidade, setCidade] = useState<string>("todas");
@@ -91,9 +91,7 @@ export default function Page() {
 
   const cidades = useMemo(() => {
     const s = new Set<string>();
-    list.forEach((u) => {
-      if (u.cidade) s.add(u.cidade);
-    });
+    list.forEach((u) => u.cidade && s.add(u.cidade));
     return ["todas", ...Array.from(s).sort((a, b) => a.localeCompare(b))];
   }, [list]);
 
@@ -125,7 +123,6 @@ export default function Page() {
     return out;
   }, [list, q, tipo, cidade, ordenacao, somenteBolsas]);
 
-  // styles
   const bg = "#F5F6F3";
   const card = "#FFFFFF";
   const border = "#E2E4DD";
@@ -133,26 +130,23 @@ export default function Page() {
   const muted = "#5F6F66";
   const green = "#274E43";
 
-  const stopCardNav = (e: React.MouseEvent) => {
-    e.stopPropagation();
-  };
+  const stop = (e: React.MouseEvent) => e.stopPropagation();
 
   return (
     <main style={{ background: bg, minHeight: "100vh" }}>
       <section style={{ maxWidth: 1120, margin: "0 auto", padding: "44px 20px 24px" }}>
-        {/* header */}
         <div style={{ display: "flex", justifyContent: "space-between", gap: 16, flexWrap: "wrap" }}>
           <div>
             <h1 style={{ margin: 0, color: text, fontSize: 34, letterSpacing: -0.4 }}>
               Universidades na Itália
             </h1>
             <p style={{ margin: "8px 0 0", color: muted, maxWidth: 720, lineHeight: 1.45 }}>
-              Compare por <strong>cidade</strong>, <strong>tipo</strong>, <strong>QS rank</strong> e{" "}
-              <strong>áreas de estudo</strong>. Clique em um card para ver detalhes.
+              Compare opções por <strong>cidade</strong>, <strong>tipo</strong>, <strong>QS rank</strong> e{" "}
+              <strong>áreas de estudo</strong>.
             </p>
           </div>
 
-          <a
+          <Link
             href="/"
             style={{
               alignSelf: "center",
@@ -168,10 +162,9 @@ export default function Page() {
             }}
           >
             ← Voltar para Home
-          </a>
+          </Link>
         </div>
 
-        {/* filtros */}
         <div
           style={{
             marginTop: 18,
@@ -184,13 +177,7 @@ export default function Page() {
             gap: 10,
           }}
         >
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "1.2fr 0.8fr 0.8fr 0.8fr",
-              gap: 10,
-            }}
-          >
+          <div style={{ display: "grid", gridTemplateColumns: "1.2fr 0.8fr 0.8fr 0.8fr", gap: 10 }}>
             <div
               style={{
                 display: "flex",
@@ -278,7 +265,7 @@ export default function Page() {
               checked={somenteBolsas}
               onChange={(e) => setSomenteBolsas(e.target.checked)}
             />
-            Mostrar apenas com bolsas
+            Mostrar apenas com bolsas (se existir no dado)
           </label>
 
           <div style={{ color: muted, fontSize: 13 }}>
@@ -286,7 +273,6 @@ export default function Page() {
           </div>
         </div>
 
-        {/* cards */}
         <div
           style={{
             marginTop: 16,
@@ -306,9 +292,9 @@ export default function Page() {
                 key={u.id}
                 role="link"
                 tabIndex={0}
-                onClick={() => (window.location.href = detailHref)}
+                onClick={() => router.push(detailHref)}
                 onKeyDown={(e) => {
-                  if (e.key === "Enter" || e.key === " ") window.location.href = detailHref;
+                  if (e.key === "Enter" || e.key === " ") router.push(detailHref);
                 }}
                 style={{
                   cursor: "pointer",
@@ -402,14 +388,13 @@ export default function Page() {
                   </div>
                 )}
 
-                {/* ações */}
                 <div style={{ display: "flex", justifyContent: "space-between", gap: 10, flexWrap: "wrap" }}>
                   {u.site ? (
                     <a
                       href={u.site}
                       target="_blank"
                       rel="noreferrer"
-                      onClick={stopCardNav}
+                      onClick={stop}
                       style={{ color: green, fontWeight: 950, textDecoration: "none" }}
                     >
                       Visitar site ↗
@@ -419,19 +404,19 @@ export default function Page() {
                   )}
 
                   <div style={{ display: "flex", gap: 10, alignItems: "center" }}>
-                    <a
+                    <Link
                       href={detailHref}
-                      onClick={stopCardNav}
+                      onClick={(e) => stop(e as any)}
                       style={{ color: green, fontWeight: 950, textDecoration: "none", fontSize: 13 }}
                     >
                       Ver detalhes →
-                    </a>
+                    </Link>
 
                     <a
                       href={waHref}
                       target="_blank"
                       rel="noreferrer"
-                      onClick={stopCardNav}
+                      onClick={stop}
                       style={{
                         background: green,
                         color: "white",

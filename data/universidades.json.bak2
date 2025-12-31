@@ -49,7 +49,7 @@
       "Historia",
       "Linguagem, literalura e comunicação intercultural"
     ],
-    "bolsas": true
+    "bolsas": false
   },
   {
     "id": "polimi",
@@ -69,7 +69,7 @@
       "Interaction Design",
       "Medtech - Medicina e engenharia Biomedica"
     ],
-    "bolsas": true
+    "bolsas": false
   },
   {
     "id": "polito",
@@ -89,7 +89,7 @@
       "Engenharia eletronica e telecomunicações",
       "Engenharia Mecânica"
     ],
-    "bolsas": true
+    "bolsas": false
   },
   {
     "id": "roma-tor-vergata",
@@ -128,7 +128,7 @@
       "Lingua e civilização oriental",
       "Molecular Bio, Medl Chemy and CS for Pharm"
     ],
-    "bolsas": true
+    "bolsas": false
   },
   {
     "id": "university-of-genoa",
@@ -142,7 +142,7 @@
     "cursos": [
       "Tecnologia e Ciência Marinha"
     ],
-    "bolsas": true
+    "bolsas": false
   },
   {
     "id": "university-of-pavia",
@@ -158,7 +158,7 @@
       "Engenharia Edile - Arquitetura",
       "Medicina e Cirurgia (Harvey)"
     ],
-    "bolsas": true
+    "bolsas": false
   },
   {
     "id": "universita-cattolica",
@@ -208,7 +208,7 @@
       "Medicina Veterinária",
       "Administração e economia"
     ],
-    "bolsas": true
+    "bolsas": false
   },
   {
     "id": "universita-di-brescia",
@@ -225,7 +225,7 @@
       "Economia e filme digital",
       "Administração e economia"
     ],
-    "bolsas": true
+    "bolsas": false
   },
   {
     "id": "universita-di-firenze",
@@ -257,7 +257,7 @@
       "Economia: Comportamento, Dados e Politicas",
       "International medicine studies"
     ],
-    "bolsas": true
+    "bolsas": false
   },
   {
     "id": "universita-di-padova",
@@ -277,7 +277,7 @@
       "Psicologia",
       "Tecnicas e metodos para psicologia"
     ],
-    "bolsas": true
+    "bolsas": false
   },
   {
     "id": "universita-di-pavia",
@@ -291,7 +291,7 @@
     "cursos": [
       "Artificial inteligence"
     ],
-    "bolsas": true
+    "bolsas": false
   },
   {
     "id": "universita-di-pisa",
@@ -305,7 +305,7 @@
     "cursos": [
       "Administração de empresas e Economia"
     ],
-    "bolsas": true
+    "bolsas": false
   },
   {
     "id": "universita-di-trento",
@@ -324,6 +324,6 @@
       "Engenharia informática e eletronica e telecomunicações",
       "Informatica"
     ],
-    "bolsas": true
+    "bolsas": false
   }
 ]

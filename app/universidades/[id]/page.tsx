@@ -1,3 +1,4 @@
+import Link from "next/link";
 import raw from "@/data/universidades.json";
 import { notFound } from "next/navigation";
 
@@ -60,9 +61,9 @@ export default async function Page({ params }: { params: Promise<{ id: string }>
   return (
     <main style={{ background: bg, minHeight: "100vh" }}>
       <section style={{ maxWidth: 900, margin: "0 auto", padding: "44px 20px 28px" }}>
-        <a href="/universidades" style={{ color: green, textDecoration: "none", fontWeight: 900 }}>
+        <Link href="/universidades" style={{ color: green, textDecoration: "none", fontWeight: 900 }}>
           ← Voltar para a lista
-        </a>
+        </Link>
 
         <div
           style={{

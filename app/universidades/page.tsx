@@ -13,8 +13,6 @@ type UniRaw = {
   rank_qs?: number | string | null;
   site?: string | null;
   cursos?: string[] | string | null;
-
-  // opcional: se você adicionar depois no JSON/Excel
   bolsas?: boolean | null;
 };
 
@@ -86,7 +84,7 @@ export default function Page() {
 
   // UI state
   const [q, setQ] = useState("");
-  const [tipo, setTipo] = useState<"todasodas" | "todas" | Uni["tipo"]>("todas");
+  const [tipo, setTipo] = useState<"todas" | Uni["tipo"]>("todas");
   const [cidade, setCidade] = useState<string>("todas");
   const [ordenacao, setOrdenacao] = useState<"rank_qs" | "nome">("rank_qs");
   const [somenteBolsas, setSomenteBolsas] = useState(false);
@@ -127,13 +125,18 @@ export default function Page() {
     return out;
   }, [list, q, tipo, cidade, ordenacao, somenteBolsas]);
 
-  // estilos (brand safe)
+  // styles (brand safe)
   const bg = "#F5F6F3";
   const card = "#FFFFFF";
   const border = "#E2E4DD";
   const text = "#2C3A33";
   const muted = "#5F6F66";
   const green = "#274E43";
+
+  const stopCardNav = (e: React.MouseEvent) => {
+    // impede o clique no card quando clicar em links/botões internos
+    e.stopPropagation();
+  };
 
   return (
     <main style={{ background: bg, minHeight: "100vh" }}>
@@ -145,8 +148,8 @@ export default function Page() {
               Universidades na Itália
             </h1>
             <p style={{ margin: "8px 0 0", color: muted, maxWidth: 720, lineHeight: 1.45 }}>
-              Compare opções por <strong>cidade</strong>, <strong>tipo</strong>, <strong>QS rank</strong> e{" "}
-              <strong>áreas de estudo</strong>. Clique no WhatsApp para receber o passo a passo.
+              Compare por <strong>cidade</strong>, <strong>tipo</strong>, <strong>QS rank</strong> e{" "}
+              <strong>áreas de estudo</strong>. Clique em um card para ver detalhes.
             </p>
           </div>
 
@@ -276,7 +279,7 @@ export default function Page() {
               checked={somenteBolsas}
               onChange={(e) => setSomenteBolsas(e.target.checked)}
             />
-            Mostrar apenas com bolsas (se existir no dado)
+            Mostrar apenas com bolsas
           </label>
 
           <div style={{ color: muted, fontSize: 13 }}>
@@ -293,135 +296,154 @@ export default function Page() {
             gap: 14,
           }}
         >
-          {filtered.map((u) => (
-            <div
-              key={u.id}
-              style={{
-                background: card,
-                border: `1px solid ${border}`,
-                borderRadius: 18,
-                padding: 14,
-                boxShadow: "0 6px 18px rgba(0,0,0,0.04)",
-                display: "grid",
-                gap: 10,
-              }}
-            >
-              <div style={{ display: "flex", justifyContent: "space-between", gap: 10 }}>
-                <div style={{ fontWeight: 950, color: text, fontSize: 16, lineHeight: 1.25 }}>{u.nome}</div>
+          {filtered.map((u) => {
+            const detailHref = `/universidades/${u.id}`;
+            const waHref = `https://wa.me/5511967529160?text=${encodeURIComponent(
+              `Olá! Quero entender custos reais e o passo a passo para estudar na Itália. Tenho interesse em: ${u.nome} (${u.cidade}).`
+            )}`;
 
-                <div
-                  style={{
-                    background: "#E6E8E2",
-                    color: green,
-                    borderRadius: 999,
-                    padding: "6px 10px",
-                    fontSize: 12,
-                    fontWeight: 900,
-                    whiteSpace: "nowrap",
-                    height: "fit-content",
-                  }}
-                >
-                  {fmtQS(u.rank_qs)}
-                </div>
-              </div>
+            return (
+              <div
+                key={u.id}
+                role="link"
+                tabIndex={0}
+                onClick={() => (window.location.href = detailHref)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") window.location.href = detailHref;
+                }}
+                style={{
+                  cursor: "pointer",
+                  background: card,
+                  border: `1px solid ${border}`,
+                  borderRadius: 18,
+                  padding: 14,
+                  boxShadow: "0 6px 18px rgba(0,0,0,0.04)",
+                  display: "grid",
+                  gap: 10,
+                  transition: "transform 120ms ease, box-shadow 120ms ease",
+                }}
+              >
+                <div style={{ display: "flex", justifyContent: "space-between", gap: 10 }}>
+                  <div style={{ fontWeight: 950, color: text, fontSize: 16, lineHeight: 1.25 }}>
+                    {u.nome}
+                  </div>
 
-              <div style={{ color: muted, fontSize: 13, lineHeight: 1.4 }}>
-                <div>
-                  📍 {u.cidade || "—"}
-                  {u.regiao ? ` · ${u.regiao}` : ""} · {u.pais}
-                </div>
-
-                <div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginTop: 8 }}>
-                  <span
+                  <div
                     style={{
-                      background: u.tipo === "publica" ? "#274E43" : u.tipo === "privada" ? "#7C9B8A" : "#121815",
-                      color: "white",
-                      padding: "6px 10px",
+                      background: "#E6E8E2",
+                      color: green,
                       borderRadius: 999,
+                      padding: "6px 10px",
                       fontSize: 12,
                       fontWeight: 900,
+                      whiteSpace: "nowrap",
+                      height: "fit-content",
                     }}
                   >
-                    {u.tipo === "publica" ? "Pública" : u.tipo === "privada" ? "Privada" : "Outro"}
-                  </span>
+                    {fmtQS(u.rank_qs)}
+                  </div>
+                </div>
 
-                  {u.bolsas && (
+                <div style={{ color: muted, fontSize: 13, lineHeight: 1.4 }}>
+                  <div>
+                    📍 {u.cidade || "—"}
+                    {u.regiao ? ` · ${u.regiao}` : ""} · {u.pais}
+                  </div>
+
+                  <div style={{ display: "flex", gap: 8, flexWrap: "wrap", marginTop: 8 }}>
                     <span
                       style={{
-                        background: "#FFF3D6",
-                        color: "#7A5B00",
+                        background:
+                          u.tipo === "publica" ? "#274E43" : u.tipo === "privada" ? "#7C9B8A" : "#121815",
+                        color: "white",
                         padding: "6px 10px",
                         borderRadius: 999,
                         fontSize: 12,
                         fontWeight: 900,
                       }}
                     >
-                      Bolsas
+                      {u.tipo === "publica" ? "Pública" : u.tipo === "privada" ? "Privada" : "Outro"}
                     </span>
-                  )}
-                </div>
-              </div>
 
-              {u.cursos?.length > 0 && (
-                <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
-                  {u.cursos.slice(0, 6).map((c) => (
-                    <span
-                      key={c}
-                      style={{
-                        border: `1px solid ${border}`,
-                        background: "#F8F9F6",
-                        color: text,
-                        borderRadius: 999,
-                        padding: "6px 10px",
-                        fontSize: 12,
-                        fontWeight: 800,
-                      }}
-                    >
-                      {c}
-                    </span>
-                  ))}
-                  {u.cursos.length > 6 && (
-                    <span style={{ color: muted, fontSize: 12, fontWeight: 800 }}>+{u.cursos.length - 6}</span>
-                  )}
+                    {u.bolsas && (
+                      <span
+                        style={{
+                          background: "#FFF3D6",
+                          color: "#7A5B00",
+                          padding: "6px 10px",
+                          borderRadius: 999,
+                          fontSize: 12,
+                          fontWeight: 900,
+                        }}
+                      >
+                        Bolsas
+                      </span>
+                    )}
+                  </div>
                 </div>
-              )}
 
-              <div style={{ display: "flex", justifyContent: "space-between", gap: 10, flexWrap: "wrap" }}>
-                {u.site ? (
-                  <a
-                    href={u.site}
-                    target="_blank"
-                    rel="noreferrer"
-                    style={{ color: green, fontWeight: 950, textDecoration: "none" }}
-                  >
-                    Visitar site ↗
-                  </a>
-                ) : (
-                  <span style={{ color: muted, fontSize: 13 }}>Site não informado</span>
+                {u.cursos?.length > 0 && (
+                  <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
+                    {u.cursos.slice(0, 6).map((c) => (
+                      <span
+                        key={c}
+                        style={{
+                          border: `1px solid ${border}`,
+                          background: "#F8F9F6",
+                          color: text,
+                          borderRadius: 999,
+                          padding: "6px 10px",
+                          fontSize: 12,
+                          fontWeight: 800,
+                        }}
+                      >
+                        {c}
+                      </span>
+                    ))}
+                    {u.cursos.length > 6 && (
+                      <span style={{ color: muted, fontSize: 12, fontWeight: 800 }}>+{u.cursos.length - 6}</span>
+                    )}
+                  </div>
                 )}
 
-                <a
-                  href={`https://wa.me/5511967529160?text=${encodeURIComponent(
-                    `Olá! Quero entender custos reais e o passo a passo para estudar na Itália. Tenho interesse em: ${u.nome} (${u.cidade}).`
-                  )}`}
-                  target="_blank"
-                  rel="noreferrer"
-                  style={{
-                    background: green,
-                    color: "white",
-                    padding: "10px 12px",
-                    borderRadius: 12,
-                    fontWeight: 900,
-                    textDecoration: "none",
-                    fontSize: 13,
-                    boxShadow: "0 10px 24px rgba(39,78,67,0.18)",
-                  }}
-                >
-                  WhatsApp
-                </a>
+                {/* ações */}
+                <div style={{ display: "flex", justifyContent: "space-between", gap: 10, flexWrap: "wrap" }}>
+                  {u.site ? (
+                    <a
+                      href={u.site}
+                      target="_blank"
+                      rel="noreferrer"
+                      onClick={stopCardNav}
+                      style={{ color: green, fontWeight: 950, textDecoration: "none" }}
+                    >
+                      Visitar site ↗
+                    </a>
+                  ) : (
+                    <span style={{ color: muted, fontSize: 13 }}>Site não informado</span>
+                  )}
+
+                  <a
+                    href={waHref}
+                    target="_blank"
+                    rel="noreferrer"
+                    onClick={stopCardNav}
+                    style={{
+                      background: green,
+                      color: "white",
+                      padding: "10px 12px",
+                      borderRadius: 12,
+                      fontWeight: 900,
+                      textDecoration: "none",
+                      fontSize: 13,
+                      boxShadow: "0 10px 24px rgba(39,78,67,0.18)",
+                    }}
+                  >
+                    WhatsApp
+                  </a>
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
         <div style={{ height: 40 }} />

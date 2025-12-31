@@ -1,89 +1,60 @@
 import data from "@/data/universidades.json";
 
 type Uni = {
-  id?: string;
-  nome?: string;
-  cidade?: string;
-  tipo?: string;
-  cursos?: string[] | string;
-  site?: string;
-  bolsas?: boolean;
+  id?: string | null;
+  nome?: string | null;
+  cidade?: string | null;
+  tipo?: string | null;
+  regiao?: string | null;
+  pais?: string | null;
+  rank_qs?: number | null;
+  site?: string | null;
+  cursos?: string[] | string | null;
+  bolsas?: boolean | null;
 };
 
-function normalizeCursos(cursos: Uni["cursos"]) {
+function normalizeCursos(cursos?: string[] | string | null): string[] {
   if (!cursos) return [];
   if (Array.isArray(cursos)) return cursos;
-  return String(cursos)
-    .split(",")
-    .map((s) => s.trim())
-    .filter(Boolean);
+  return cursos.split(",").map((s) => s.trim()).filter(Boolean);
 }
 
 export default function Page() {
-  const list = (data as Uni[]).map((u, idx) => ({
-    ...u,
-    id: u.id || `${idx}`,
+  const list = ((data as unknown) as Uni[]).map((u, idx) => ({
+    id: (u.id ?? `${idx}`) as string,
+    nome: (u.nome ?? "Universidade") as string,
+    cidade: (u.cidade ?? "") as string,
+    tipo: (u.tipo ?? "") as string,
+    regiao: (u.regiao ?? "") as string,
+    pais: (u.pais ?? "") as string,
+    rank_qs: u.rank_qs ?? null,
+    site: (u.site ?? "") as string,
+    bolsas: !!u.bolsas,
     cursos: normalizeCursos(u.cursos),
   }));
 
   return (
-    <main style={{ background: "#F5F6F3", minHeight: "100vh", padding: "40px 24px" }}>
-      <div style={{ maxWidth: 1100, margin: "0 auto" }}>
-        <h1 style={{ margin: 0, fontSize: 34, color: "#121815" }}>Universidades na Itália</h1>
-        <p style={{ color: "#5F6F66", marginTop: 10 }}>Dados reais do seu Excel.</p>
-
-        <div style={{ marginTop: 16, display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 12 }}>
-          {list.map((u) => (
-            <div
-              key={u.id}
-              style={{
-                background: "white",
-                border: "1px solid #E2E4DD",
-                borderRadius: 18,
-                padding: 14,
-                boxShadow: "0 6px 18px rgba(0,0,0,0.04)",
-                color: "#2C3A33",
-              }}
-            >
-              <div style={{ fontWeight: 900, fontSize: 16 }}>{u.nome || "Universidade"}</div>
-
-              <div style={{ color: "#5F6F66", marginTop: 6, fontSize: 13 }}>
-                {u.cidade ? `📍 ${u.cidade}` : "📍 Itália"}
-                {u.tipo ? ` • ${u.tipo}` : ""}
-                {u.bolsas ? " • ✅ Bolsas" : ""}
-              </div>
-
-              {!!(u.cursos as string[])?.length && (
-                <div style={{ marginTop: 10, display: "flex", gap: 6, flexWrap: "wrap" }}>
-                  {(u.cursos as string[]).slice(0, 4).map((c) => (
-                    <span
-                      key={c}
-                      style={{
-                        fontSize: 12,
-                        fontWeight: 800,
-                        color: "#274E43",
-                        background: "#E6E8E2",
-                        padding: "6px 10px",
-                        borderRadius: 999,
-                      }}
-                    >
-                      {c}
-                    </span>
-                  ))}
-                </div>
-              )}
-
-              {u.site && (
-                <a href={u.site} target="_blank" rel="noopener noreferrer" style={{ display: "inline-block", marginTop: 12, color: "#274E43", fontWeight: 900, textDecoration: "none" }}>
-                  Site oficial →
-                </a>
-              )}
-            </div>
-          ))}
-        </div>
-      </div>
+    <main style={{ padding: 32 }}>
+      <h1>Universidades na Itália</h1>
+      <ul>
+        {list.map((u) => (
+          <li key={u.id} style={{ marginBottom: 16 }}>
+            <strong>{u.nome}</strong>
+            <br />
+            {(u.cidade || u.tipo) && (
+              <span>
+                {u.cidade ? u.cidade : ""}{u.cidade && u.tipo ? " · " : ""}{u.tipo ? u.tipo : ""}
+              </span>
+            )}
+            <br />
+            {u.site && u.site.length > 0 && (
+              <a href={u.site} target="_blank" rel="noreferrer">
+                Site
+              </a>
+            )}
+          </li>
+        ))}
+      </ul>
     </main>
   );
 }
-
-

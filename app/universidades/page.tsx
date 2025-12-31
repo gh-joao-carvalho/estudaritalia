@@ -125,7 +125,7 @@ export default function Page() {
     return out;
   }, [list, q, tipo, cidade, ordenacao, somenteBolsas]);
 
-  // styles (brand safe)
+  // styles
   const bg = "#F5F6F3";
   const card = "#FFFFFF";
   const border = "#E2E4DD";
@@ -134,7 +134,6 @@ export default function Page() {
   const green = "#274E43";
 
   const stopCardNav = (e: React.MouseEvent) => {
-    // impede o clique no card quando clicar em links/botões internos
     e.stopPropagation();
   };
 
@@ -287,7 +286,7 @@ export default function Page() {
           </div>
         </div>
 
-        {/* grid cards */}
+        {/* cards */}
         <div
           style={{
             marginTop: 16,
@@ -320,13 +319,10 @@ export default function Page() {
                   boxShadow: "0 6px 18px rgba(0,0,0,0.04)",
                   display: "grid",
                   gap: 10,
-                  transition: "transform 120ms ease, box-shadow 120ms ease",
                 }}
               >
                 <div style={{ display: "flex", justifyContent: "space-between", gap: 10 }}>
-                  <div style={{ fontWeight: 950, color: text, fontSize: 16, lineHeight: 1.25 }}>
-                    {u.nome}
-                  </div>
+                  <div style={{ fontWeight: 950, color: text, fontSize: 16, lineHeight: 1.25 }}>{u.nome}</div>
 
                   <div
                     style={{
@@ -422,24 +418,34 @@ export default function Page() {
                     <span style={{ color: muted, fontSize: 13 }}>Site não informado</span>
                   )}
 
-                  <a
-                    href={waHref}
-                    target="_blank"
-                    rel="noreferrer"
-                    onClick={stopCardNav}
-                    style={{
-                      background: green,
-                      color: "white",
-                      padding: "10px 12px",
-                      borderRadius: 12,
-                      fontWeight: 900,
-                      textDecoration: "none",
-                      fontSize: 13,
-                      boxShadow: "0 10px 24px rgba(39,78,67,0.18)",
-                    }}
-                  >
-                    WhatsApp
-                  </a>
+                  <div style={{ display: "flex", gap: 10, alignItems: "center" }}>
+                    <a
+                      href={detailHref}
+                      onClick={stopCardNav}
+                      style={{ color: green, fontWeight: 950, textDecoration: "none", fontSize: 13 }}
+                    >
+                      Ver detalhes →
+                    </a>
+
+                    <a
+                      href={waHref}
+                      target="_blank"
+                      rel="noreferrer"
+                      onClick={stopCardNav}
+                      style={{
+                        background: green,
+                        color: "white",
+                        padding: "10px 12px",
+                        borderRadius: 12,
+                        fontWeight: 900,
+                        textDecoration: "none",
+                        fontSize: 13,
+                        boxShadow: "0 10px 24px rgba(39,78,67,0.18)",
+                      }}
+                    >
+                      WhatsApp
+                    </a>
+                  </div>
                 </div>
               </div>
             );

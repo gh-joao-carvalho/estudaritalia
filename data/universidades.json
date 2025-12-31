@@ -4,7 +4,7 @@
     "nome": "Federico II",
     "tipo": null,
     "cidade": "Napoli",
-    "regiao": "Campagna",
+    "regiao": "Campania",
     "pais": "Itália",
     "rank_qs": 379,
     "site": null,
@@ -15,7 +15,8 @@
       "Hospitality Management",
       "Inovação alimenticia e Design",
       "mathematical-analysis-and-modeling"
-    ]
+    ],
+    "bolsas": false
   },
   {
     "id": "humanitas-university",
@@ -29,11 +30,12 @@
     "cursos": [
       "Medicina e Cirurgia (Harvey)",
       "medtech-medicina-e-ingegneria-biomedica"
-    ]
+    ],
+    "bolsas": false
   },
   {
     "id": "iph",
-    "nome": "IPH ",
+    "nome": "IPH",
     "tipo": "publica",
     "cidade": "Pisa",
     "regiao": "Toscana",
@@ -46,7 +48,8 @@
       "Filosofia",
       "Historia",
       "Linguagem, literalura e comunicação intercultural"
-    ]
+    ],
+    "bolsas": false
   },
   {
     "id": "polimi",
@@ -65,7 +68,8 @@
       "Engineer Science",
       "Interaction Design",
       "Medtech - Medicina e engenharia Biomedica"
-    ]
+    ],
+    "bolsas": false
   },
   {
     "id": "polito",
@@ -84,7 +88,8 @@
       "Engenharia de Produção industrial",
       "Engenharia eletronica e telecomunicações",
       "Engenharia Mecânica"
-    ]
+    ],
+    "bolsas": false
   },
   {
     "id": "roma-tor-vergata",
@@ -99,7 +104,8 @@
       "Administração de empresas e Economia",
       "Engineer Science",
       "Governança Global"
-    ]
+    ],
+    "bolsas": false
   },
   {
     "id": "sapienza",
@@ -121,11 +127,12 @@
       "Humanidades Global",
       "Lingua e civilização oriental",
       "Molecular Bio, Medl Chemy and CS for Pharm"
-    ]
+    ],
+    "bolsas": false
   },
   {
     "id": "university-of-genoa",
-    "nome": "University of Genoa ",
+    "nome": "University of Genoa",
     "tipo": "publica",
     "cidade": "Genova",
     "regiao": "Ligura",
@@ -134,7 +141,8 @@
     "site": null,
     "cursos": [
       "Tecnologia e Ciência Marinha"
-    ]
+    ],
+    "bolsas": false
   },
   {
     "id": "university-of-pavia",
@@ -149,11 +157,12 @@
       "Ciências Sociais para desafios globais",
       "Engenharia Edile - Arquitetura",
       "Medicina e Cirurgia (Harvey)"
-    ]
+    ],
+    "bolsas": false
   },
   {
     "id": "universita-cattolica",
-    "nome": "Università Cattolica ",
+    "nome": "Università Cattolica",
     "tipo": "privada",
     "cidade": "Milano",
     "regiao": "Lombardia",
@@ -170,7 +179,8 @@
       "Negocios e Finança",
       "psychology-sciency",
       "Relações intenacionais e Assuntos globais"
-    ]
+    ],
+    "bolsas": false
   },
   {
     "id": "universita-di-bologna",
@@ -197,7 +207,8 @@
       "Medicina e Cirurgia (Harvey)",
       "Medicina Veterinária",
       "Administração e economia"
-    ]
+    ],
+    "bolsas": false
   },
   {
     "id": "universita-di-brescia",
@@ -213,7 +224,8 @@
       "Economia e analise de dados",
       "Economia e filme digital",
       "Administração e economia"
-    ]
+    ],
+    "bolsas": false
   },
   {
     "id": "universita-di-firenze",
@@ -226,7 +238,8 @@
     "site": null,
     "cursos": [
       "Negocios sustentáveis para desafios da sociedade"
-    ]
+    ],
+    "bolsas": false
   },
   {
     "id": "universita-di-milano",
@@ -243,7 +256,8 @@
       "Ciência Politica e relações internacionais",
       "Economia: Comportamento, Dados e Politicas",
       "International medicine studies"
-    ]
+    ],
+    "bolsas": false
   },
   {
     "id": "universita-di-padova",
@@ -262,7 +276,8 @@
       "Italia Medieval e Renascença",
       "Psicologia",
       "Tecnicas e metodos para psicologia"
-    ]
+    ],
+    "bolsas": false
   },
   {
     "id": "universita-di-pavia",
@@ -275,7 +290,8 @@
     "site": null,
     "cursos": [
       "Artificial inteligence"
-    ]
+    ],
+    "bolsas": false
   },
   {
     "id": "universita-di-pisa",
@@ -288,7 +304,8 @@
     "site": null,
     "cursos": [
       "Administração de empresas e Economia"
-    ]
+    ],
+    "bolsas": false
   },
   {
     "id": "universita-di-trento",
@@ -306,6 +323,7 @@
       "Engenharia de sistemas medicos para as pesso",
       "Engenharia informática e eletronica e telecomunicações",
       "Informatica"
-    ]
+    ],
+    "bolsas": false
   }
 ]

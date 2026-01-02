@@ -177,7 +177,14 @@ export default function Page() {
             gap: 10,
           }}
         >
-          <div style={{ display: "grid", gridTemplateColumns: "1.2fr 0.8fr 0.8fr 0.8fr", gap: 10 }}>
+          <div
+  style={{
+    display: "grid",
+    gap: 10,
+    gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))",
+    width: "100%",
+  }}
+>
             <div
               style={{
                 display: "flex",
@@ -198,6 +205,7 @@ export default function Page() {
                   border: "none",
                   outline: "none",
                   width: "100%",
+                  minWidth: 0,
                   fontSize: 14,
                   color: text,
                   background: "transparent",
@@ -215,6 +223,8 @@ export default function Page() {
                 background: "white",
                 color: text,
                 fontWeight: 800,
+                width: "100%",
+                minWidth: 0,
               }}
             >
               <option value="todas">Tipo: todas</option>
@@ -233,6 +243,8 @@ export default function Page() {
                 background: "white",
                 color: text,
                 fontWeight: 800,
+                width: "100%",
+                minWidth: 0,
               }}
             >
               {cidades.map((c) => (
@@ -240,23 +252,7 @@ export default function Page() {
                   {c === "todas" ? "Cidade: todas" : c}
                 </option>
               ))}
-            </select>
-
-            <select
-              value={ordenacao}
-              onChange={(e) => setOrdenacao(e.target.value as any)}
-              style={{
-                border: `1px solid ${border}`,
-                borderRadius: 14,
-                padding: "10px 12px",
-                background: "white",
-                color: text,
-                fontWeight: 800,
-              }}
-            >
-              <option value="rank_qs">Ordenar: QS (melhor primeiro)</option>
-              <option value="nome">Ordenar: nome</option>
-            </select>
+            </select>            
           </div>
 
           <label style={{ display: "flex", alignItems: "center", gap: 10, color: text, fontWeight: 800 }}>

@@ -1,13 +1,157 @@
 [
   {
+    "id": "sapienza",
+    "nome": "Sapienza Università di Roma",
+    "tipo": "publica",
+    "cidade": "Roma",
+    "regiao": "Lazio",
+    "pais": "Itália",
+    "rank_qs": 128,
+    "site": "https://www.uniroma1.it/",
+    "cursos": [
+      "Medicina",
+      "Engenharia",
+      "Direito"
+    ],
+    "bolsas": true
+  },
+  {
+    "id": "universita-di-bologna",
+    "nome": "Università di Bologna",
+    "tipo": "publica",
+    "cidade": "Bologna",
+    "regiao": "Emilia-Romagna",
+    "pais": "Itália",
+    "rank_qs": 138,
+    "site": "https://www.unibo.it/it",
+    "cursos": [
+      "Medicina",
+      "Engenharia",
+      "Direito",
+      "STEM",
+      "Outras"
+    ],
+    "bolsas": true
+  },
+  {
+    "id": "polimi",
+    "nome": "Politecnico di Milano (PoliMi)",
+    "tipo": "publica",
+    "cidade": "Milão",
+    "regiao": "Lombardia",
+    "pais": "Itália",
+    "rank_qs": 98,
+    "site": "Politecnico di Milano - polimi",
+    "cursos": [
+      "Engenharia",
+      "Design",
+      "Arquitetura"
+    ],
+    "bolsas": true
+  },
+  {
+    "id": "universita-di-padova",
+    "nome": "Università degli Studi di Padova",
+    "tipo": "publica",
+    "cidade": "Padova",
+    "regiao": "Veneto",
+    "pais": "Itália",
+    "rank_qs": 233,
+    "site": "https://www.unipd.it/",
+    "cursos": [
+      "Veterinári",
+      "Psicologia",
+      "Informática"
+    ],
+    "bolsas": true
+  },
+  {
+    "id": "polito",
+    "nome": "Politecnico di Torino (PoliTo)",
+    "tipo": "publica",
+    "cidade": "Torino",
+    "regiao": "Piemonte",
+    "pais": "Itália",
+    "rank_qs": 242,
+    "site": "Politecnico di Torino",
+    "cursos": [
+      "Engenharia",
+      "Design",
+      "Arquitetura"
+    ],
+    "bolsas": true
+  },
+  {
+    "id": "universita-di-milano",
+    "nome": "Università di Milano (UniMi)",
+    "tipo": "publica",
+    "cidade": "Milão",
+    "regiao": "Lombardia",
+    "pais": "Itália",
+    "rank_qs": 276,
+    "site": "home | Università degli Studi di Milano Statale",
+    "cursos": [
+      "Medicina",
+      "Ciências"
+    ],
+    "bolsas": true
+  },
+  {
+    "id": "universita-di-pavia",
+    "nome": "Università di Pavia",
+    "tipo": "publica",
+    "cidade": "Pavia",
+    "regiao": "Lombardia",
+    "pais": "Itália",
+    "rank_qs": 469,
+    "site": "https://portale.unipv.it/",
+    "cursos": [
+      "Artificial inteligence"
+    ],
+    "bolsas": true
+  },
+  {
+    "id": "universita-di-brescia",
+    "nome": "Università di Brescia",
+    "tipo": "publica",
+    "cidade": "Brescia",
+    "regiao": "Lombardia",
+    "pais": "Itália",
+    "rank_qs": 650,
+    "site": "https://www.unibs.it/",
+    "cursos": [
+      "Administração de empresas",
+      "Economia e analise de dados",
+      "Economia e filme digital",
+      "Administração e economia"
+    ],
+    "bolsas": true
+  },
+  {
+    "id": "roma-tor-vergata",
+    "nome": "Roma Tor Vergata",
+    "tipo": "publica",
+    "cidade": "Roma",
+    "regiao": "Lazio",
+    "pais": "Itália",
+    "rank_qs": 355,
+    "site": "Homepage Università degli Studi di Roma Tor Vergata",
+    "cursos": [
+      "Administração de empresas e Economia",
+      "Engineer Science",
+      "Governança Global"
+    ],
+    "bolsas": false
+  },
+  {
     "id": "federico-ii",
-    "nome": "Federico II",
-    "tipo": null,
+    "nome": "Federico II (Napoli)",
+    "tipo": "publica",
     "cidade": "Napoli",
-    "regiao": "Campania",
+    "regiao": "Campagnia",
     "pais": "Itália",
     "rank_qs": 379,
-    "site": null,
+    "site": "https://www.unina.it/",
     "cursos": [
       "Biologia para a saúde",
       "Engenharia Civil e Ambiental",
@@ -19,29 +163,42 @@
     "bolsas": false
   },
   {
-    "id": "humanitas-university",
-    "nome": "Humanitas University",
-    "tipo": "privada",
-    "cidade": "Pieve Emanuele",
-    "regiao": "Lombardia",
+    "id": "universita-di-firenze",
+    "nome": "Università di Firenze",
+    "tipo": "publica",
+    "cidade": "Firenze",
+    "regiao": "Toscana",
     "pais": "Itália",
-    "rank_qs": null,
-    "site": null,
+    "rank_qs": 404,
+    "site": "https://www.unifi.it/",
     "cursos": [
-      "Medicina e Cirurgia (Harvey)",
-      "medtech-medicina-e-ingegneria-biomedica"
+      "Negocios sustentáveis para desafios da sociedade"
     ],
     "bolsas": false
   },
   {
-    "id": "iph",
-    "nome": "IPH",
+    "id": "universita-di-pisa",
+    "nome": "Università di Pisa",
     "tipo": "publica",
     "cidade": "Pisa",
     "regiao": "Toscana",
     "pais": "Itália",
     "rank_qs": null,
-    "site": null,
+    "site": "Home ~ UNIPI",
+    "cursos": [
+      "Administração de empresas e Economia"
+    ],
+    "bolsas": true
+  },
+  {
+    "id": "iph",
+    "nome": "International Program in Humanities - Pisa",
+    "tipo": "publica",
+    "cidade": "Pisa",
+    "regiao": "Toscana",
+    "pais": "Itália",
+    "rank_qs": null,
+    "site": "IPH – The International Programme in Humanities",
     "cursos": [
       "Artes performáticas e comunicação",
       "Estudos em patrimônios culturais",
@@ -52,123 +209,29 @@
     "bolsas": true
   },
   {
-    "id": "polimi",
-    "nome": "Polimi",
-    "tipo": "publica",
-    "cidade": "Milano",
-    "regiao": "Lombardia",
+    "id": "humanitas-university",
+    "nome": "Humanitas University",
+    "tipo": "privada",
+    "cidade": "Milão;Bergamo;Catania",
+    "regiao": "Lombardia;Sicilia",
     "pais": "Itália",
-    "rank_qs": 98,
-    "site": null,
+    "rank_qs": null,
+    "site": "Hunimed | Official Website Humanitas University",
     "cursos": [
-      "Arquitetura",
-      "Engenharia Civil e Ambiental",
-      "engenharia de Processos",
-      "Engenharia Industrial",
-      "Engineer Science",
-      "Interaction Design",
-      "Medtech - Medicina e engenharia Biomedica"
-    ],
-    "bolsas": true
-  },
-  {
-    "id": "polito",
-    "nome": "Polito",
-    "tipo": "publica",
-    "cidade": "Torino",
-    "regiao": "Piedmont",
-    "pais": "Itália",
-    "rank_qs": 242,
-    "site": null,
-    "cursos": [
-      "Arquitetura",
-      "Engenharia automotiva",
-      "Engenharia Civil e Ambiental",
-      "Engenharia da computação",
-      "Engenharia de Produção industrial",
-      "Engenharia eletronica e telecomunicações",
-      "Engenharia Mecânica"
-    ],
-    "bolsas": true
-  },
-  {
-    "id": "roma-tor-vergata",
-    "nome": "Roma Tor Vergata",
-    "tipo": null,
-    "cidade": "Rome",
-    "regiao": "Lazio",
-    "pais": "Itália",
-    "rank_qs": 355,
-    "site": null,
-    "cursos": [
-      "Administração de empresas e Economia",
-      "Engineer Science",
-      "Governança Global"
+      "Medicina e Cirurgia (Harvey)",
+      "medtech-medicina-e-ingegneria-biomedica"
     ],
     "bolsas": false
   },
   {
-    "id": "sapienza",
-    "nome": "Sapienza",
-    "tipo": "publica",
-    "cidade": "Roma",
-    "regiao": "Lazio",
-    "pais": "Itália",
-    "rank_qs": 128,
-    "site": null,
-    "cursos": [
-      "Bioinformatica",
-      "Ciencia da computação aplicada e AI",
-      "Ciência Empresarial",
-      "Classicos - Civilização e literatura clássica",
-      "Economia e Finança",
-      "Engenharia ambiental sustentável",
-      "Engenharia de construção sustentável",
-      "Humanidades Global",
-      "Lingua e civilização oriental",
-      "Molecular Bio, Medl Chemy and CS for Pharm"
-    ],
-    "bolsas": true
-  },
-  {
-    "id": "university-of-genoa",
-    "nome": "University of Genoa",
-    "tipo": "publica",
-    "cidade": "Genova",
-    "regiao": "Ligura",
-    "pais": "Itália",
-    "rank_qs": null,
-    "site": null,
-    "cursos": [
-      "Tecnologia e Ciência Marinha"
-    ],
-    "bolsas": true
-  },
-  {
-    "id": "university-of-pavia",
-    "nome": "University of Pavia",
-    "tipo": "publica",
-    "cidade": "Pavia",
-    "regiao": "Lombardia",
-    "pais": "Itália",
-    "rank_qs": 469,
-    "site": null,
-    "cursos": [
-      "Ciências Sociais para desafios globais",
-      "Engenharia Edile - Arquitetura",
-      "Medicina e Cirurgia (Harvey)"
-    ],
-    "bolsas": true
-  },
-  {
     "id": "universita-cattolica",
-    "nome": "Università Cattolica",
+    "nome": "Università Cattolica (UCSC)",
     "tipo": "privada",
-    "cidade": "Milano",
-    "regiao": "Lombardia",
+    "cidade": "Milão;Bergamo;Catania",
+    "regiao": "nan",
     "pais": "Itália",
     "rank_qs": null,
-    "site": null,
+    "site": "Università Cattolica del Sacro Cuore",
     "cursos": [
       "Administração de empresas internacionais",
       "Criminologia",
@@ -183,127 +246,16 @@
     "bolsas": false
   },
   {
-    "id": "universita-di-bologna",
-    "nome": "Università di Bologna",
+    "id": "university-of-genoa",
+    "nome": "Università di Genova",
     "tipo": "publica",
-    "cidade": "Bologna",
-    "regiao": "Emilia-Romagna",
-    "pais": "Itália",
-    "rank_qs": 138,
-    "site": null,
-    "cursos": [
-      "Biologia humana e ambiental",
-      "Ciência Estatística",
-      "Economia de Empresas",
-      "Economia de turismo e cidades",
-      "Economia e Finança",
-      "Economia e gerenciamento",
-      "Economia, politica e Ciências Sociais",
-      "Engenharia de construção sustentável",
-      "European Studies",
-      "Farmácia",
-      "genomia",
-      "International Studies",
-      "Medicina e Cirurgia (Harvey)",
-      "Medicina Veterinária",
-      "Administração e economia"
-    ],
-    "bolsas": true
-  },
-  {
-    "id": "universita-di-brescia",
-    "nome": "Università di Brescia",
-    "tipo": "publica",
-    "cidade": "Brescia",
-    "regiao": "Lombardia",
-    "pais": "Itália",
-    "rank_qs": 650,
-    "site": null,
-    "cursos": [
-      "Administração de empresas",
-      "Economia e analise de dados",
-      "Economia e filme digital",
-      "Administração e economia"
-    ],
-    "bolsas": true
-  },
-  {
-    "id": "universita-di-firenze",
-    "nome": "Università di Firenze",
-    "tipo": null,
-    "cidade": "Firenze",
-    "regiao": "Toscana",
-    "pais": "Itália",
-    "rank_qs": 404,
-    "site": null,
-    "cursos": [
-      "Negocios sustentáveis para desafios da sociedade"
-    ],
-    "bolsas": false
-  },
-  {
-    "id": "universita-di-milano",
-    "nome": "Università di Milano",
-    "tipo": "publica",
-    "cidade": "Milano",
-    "regiao": "Lombardia",
-    "pais": "Itália",
-    "rank_qs": 276,
-    "site": null,
-    "cursos": [
-      "Artificial inteligence",
-      "Civilizações antigas para o mundo contemporaneo",
-      "Ciência Politica e relações internacionais",
-      "Economia: Comportamento, Dados e Politicas",
-      "International medicine studies"
-    ],
-    "bolsas": true
-  },
-  {
-    "id": "universita-di-padova",
-    "nome": "Università di Padova",
-    "tipo": "publica",
-    "cidade": "Padova",
-    "regiao": "Veneto",
-    "pais": "Itália",
-    "rank_qs": 233,
-    "site": null,
-    "cursos": [
-      "Biologia humana e ambiental",
-      "Cuidado animal",
-      "Dinamica do solo e clima",
-      "Engenharia da informação",
-      "Italia Medieval e Renascença",
-      "Psicologia",
-      "Tecnicas e metodos para psicologia"
-    ],
-    "bolsas": true
-  },
-  {
-    "id": "universita-di-pavia",
-    "nome": "Università di Pavia",
-    "tipo": "publica",
-    "cidade": "Pavia",
-    "regiao": "Lombardia",
-    "pais": "Itália",
-    "rank_qs": 469,
-    "site": null,
-    "cursos": [
-      "Artificial inteligence"
-    ],
-    "bolsas": true
-  },
-  {
-    "id": "universita-di-pisa",
-    "nome": "Università di Pisa",
-    "tipo": "publica",
-    "cidade": "Pisa",
-    "regiao": "Toscana",
+    "cidade": "Genoa",
+    "regiao": "Liguria",
     "pais": "Itália",
     "rank_qs": null,
-    "site": null,
+    "site": "Università degli Studi di Genova | UniGe",
     "cursos": [
-      "Administração de empresas e Economia"
+      "Tecnologia e Ciência Marinha"
     ],
     "bolsas": true
   },
@@ -312,10 +264,10 @@
     "nome": "Università di Trento",
     "tipo": "publica",
     "cidade": "Trento",
-    "regiao": "Trentino",
+    "regiao": "Trentino Alto-Adige",
     "pais": "Itália",
     "rank_qs": null,
-    "site": null,
+    "site": "https://www.unitn.it/",
     "cursos": [
       "Ciência e tecnologia biomolecular",
       "Comparative European and International Studies",
